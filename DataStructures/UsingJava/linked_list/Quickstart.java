@@ -2,7 +2,7 @@ package linked_list;
 import linked_list.Node;
 import linked_list.LinkedList;
 
-public class LinkedListUsage {
+public class Quickstart {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
