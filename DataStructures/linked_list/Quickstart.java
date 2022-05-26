@@ -1,6 +1,3 @@
-package linked_list;
-import linked_list.Node;
-import linked_list.LinkedList;
 
 public class Quickstart {
 
