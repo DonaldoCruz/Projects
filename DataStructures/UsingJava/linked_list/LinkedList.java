@@ -1,9 +1,11 @@
 package linked_list;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class LinkedList<E> {
+public class LinkedList<E> implements Iterator<E> {
 	
 	/*Declaring instance variables*/
-	private Node<E> head;
+	private Node<E> head, tail, current;
 	private int nodeCount;
 	
 	/**
@@ -11,6 +13,8 @@ public class LinkedList<E> {
 	 */
 	public LinkedList() {
 		this.head = null;
+		this.tail = head;
+		this.current = head;
 		nodeCount = 0;
 	}
 	
@@ -22,9 +26,13 @@ public class LinkedList<E> {
 		
 		if(this.head == null) {
 			this.head = new Node<E>(element, null);
+			this.tail = head;
+			this.current = head;
 		}
 		else {
-			this.head.addNodeAfter(element);;
+			tail.setLink(new Node<E>(element, null));
+			tail = tail.getLink();
+			// this.head.addNodeAfter(element); //Not using this method of adding a node to the linked list because it doesn't add the nodes in-order.
 		}
 		nodeCount++;
 	}
@@ -84,6 +92,31 @@ public class LinkedList<E> {
 	public int length() {
 		return nodeCount;
 	}
-	
-	
+
+	/**
+	 * This function overrides the hasNext method of the Iterator Interface
+	 * @return True if node exists.
+	 */
+	public boolean hasNext() {
+		return current != null;
+	}
+
+	/**
+	 * This function returns the data of the current node.
+	 * @return The data contained in the current node.
+	 */
+	public E next() {
+		E answer;
+
+		if (!hasNext())
+			throw new NoSuchElementException("The linked list is empty");
+		
+		answer = current.getData();
+		current = current.getLink();
+
+		return answer;
+	}
+
+
+
 }
