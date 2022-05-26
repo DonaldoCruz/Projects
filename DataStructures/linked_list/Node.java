@@ -1,4 +1,3 @@
-
 public class Node<E> {
 	
 	/*Instance variables*/

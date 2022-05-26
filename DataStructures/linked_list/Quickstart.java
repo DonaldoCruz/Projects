@@ -1,8 +1,6 @@
-
 public class Quickstart {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		LinkedList<Integer> bag1 = new LinkedList<Integer>();
 		
 		/*Adding nodes to the linked list */
