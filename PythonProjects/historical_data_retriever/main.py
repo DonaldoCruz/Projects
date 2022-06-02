@@ -1,4 +1,5 @@
-import company_recon
+from company_recon import CompanyRecon
 
 print('Hello world')
 
+# obj = CompanyRecon('TSLA')
